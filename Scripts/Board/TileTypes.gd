@@ -1,0 +1,4 @@
+extends Node2D
+
+enum CELL_TYPES { SLIDABLE = 1, EMPTY = 2, NON_SLIDABLE = 3 }
+export (CELL_TYPES) var type = CELL_TYPES.SLIDABLE
