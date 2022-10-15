@@ -11,7 +11,12 @@ config_version=4
 [application]
 
 config/name="SlidePuzzles"
+run/main_scene="res://Scenes/Board/SlidableTileTest.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+GameManager="*res://Scenes/AutoLoad/GameManager.tscn"
 
 [display]
 
