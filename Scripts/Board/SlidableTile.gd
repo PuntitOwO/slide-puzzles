@@ -3,6 +3,7 @@ extends 'TileTypes.gd'
 signal move_complete
 
 const TILE_SIZE = 16
+const PIXEL_SIZE = 2
 
 onready var tween = $Tween
 onready var pivot = $Pivot
@@ -48,12 +49,16 @@ func show_piece() -> void:
 
 func move_to(target_position: Vector2) -> void:
 	var move_direction = position.direction_to(target_position)
-	tween.interpolate_property(pivot, "position", - move_direction * TILE_SIZE, Vector2.ZERO, 1, Tween.TRANS_CUBIC, Tween.EASE_IN_OUT)
+	tween.interpolate_method(self, "snap_pixel", - move_direction * TILE_SIZE, Vector2.ZERO, 1, Tween.TRANS_EXPO, Tween.EASE_OUT)
 	tween.start()
 	yield(tween, "tween_started")
 	position = target_position
 	yield(tween, "tween_completed")
 	emit_signal("move_complete")
+
+func snap_pixel(pos: Vector2) -> void:
+	pivot.position.x = int(pos.x) - int(pos.x) % PIXEL_SIZE
+	pivot.position.y = int(pos.y) - int(pos.y) % PIXEL_SIZE
 
 func bump() -> void:
 	var first_color = pivot.modulate
