@@ -1,11 +1,11 @@
 [gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Assets/SelfMade/board/BoardTileset.png" type="Texture" id=1]
-[ext_resource path="res://Scenes/Board/Tile.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Board/SlidableTile.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scripts/Board/BoardTileMap.gd" type="Script" id=3]
 [ext_resource path="res://Assets/SelfMade/board/BoardTile.png" type="Texture" id=4]
 [ext_resource path="res://Scenes/Board/EmptyTile.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scenes/Board/Test.gd" type="Script" id=6]
+[ext_resource path="res://Scenes/Board/TestRoom.gd" type="Script" id=6]
 [ext_resource path="res://Assets/pixeluipack/Spritesheet/UIpackSheet_transparent.png" type="Texture" id=7]
 
 [sub_resource type="TileSet" id=1]
@@ -73,62 +73,62 @@ region = Rect2( 288, 450, 16, 16 )
 atlas = ExtResource( 7 )
 region = Rect2( 396, 414, 16, 16 )
 
-[node name="SlidableTileTest" type="Node2D"]
+[node name="TestRoom" type="Node2D"]
 script = ExtResource( 6 )
 
-[node name="SlidableTile" type="TileMap" parent="."]
+[node name="BoardTileMap" type="TileMap" parent="."]
 tile_set = SubResource( 1 )
 cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( -262153, 0, 8, -262152, 0, 10, -262151, 0, 6, -262150, 0, 196610, -262149, 0, 5, -262148, 0, 10, -262147, 0, 10, -262146, 0, 10, -262145, 0, 10, -327680, 0, 10, -327679, 0, 10, -327678, 0, 10, -327677, 0, 10, -327676, 0, 6, -327675, 0, 196610, -327674, 0, 5, -327673, 0, 10, -327672, 0, 11, -196617, 0, 65544, -196616, 0, 131081, -196615, 0, 131083, -196613, 0, 196616, -196612, 0, 131077, -196611, 0, 131081, -196610, 0, 131081, -196609, 0, 131081, -262144, 0, 131081, -262143, 0, 131081, -262142, 0, 131081, -262141, 0, 131078, -262140, 0, 196619, -262138, 0, 65544, -262137, 0, 131081, -262136, 0, 131083, -131081, 0, 65544, -131080, 0, 131078, -131079, 0, 196614, -131078, 0, 3, -131076, 0, 65544, -131075, 0, 131078, -131074, 0, 196617, -131073, 0, 196617, -196608, 0, 196617, -196607, 0, 196617, -196606, 0, 131077, -196605, 0, 131083, -196603, 0, 1, -196602, 0, 196613, -196601, 0, 131077, -196600, 0, 131083, -65545, 0, 65544, -65544, 0, 131083, -65542, 0, 131073, -65541, 0, 196610, -65540, 0, 131080, -65539, 0, 131083, -131070, 0, 65544, -131069, 0, 65547, -131068, 0, 196610, -131067, 0, 131075, -131065, 0, 65544, -131064, 0, 131083, -9, 0, 65544, -8, 0, 65542, -7, 0, 11, -4, 0, 65544, -3, 0, 131083, -65534, 0, 65544, -65533, 0, 131083, -65530, 0, 8, -65529, 0, 65541, -65528, 0, 131083, 65527, 0, 65544, 65528, 0, 131078, 65529, 0, 196619, 65532, 0, 65544, 65533, 0, 131083, 2, 0, 65544, 3, 0, 131083, 6, 0, 196616, 7, 0, 131077, 8, 0, 131083, 131063, 0, 65544, 131064, 0, 131083, 131066, 0, 1, 131067, 0, 196610, 131068, 0, 131080, 131069, 0, 131083, 65538, 0, 65544, 65539, 0, 65547, 65540, 0, 196610, 65541, 0, 3, 65543, 0, 65544, 65544, 0, 131083, 196599, 0, 65544, 196600, 0, 65542, 196601, 0, 6, 196602, 0, 131075, 196604, 0, 65544, 196605, 0, 65542, 196606, 0, 10, 196607, 0, 10, 131072, 0, 10, 131073, 0, 10, 131074, 0, 65541, 131075, 0, 131083, 131077, 0, 131073, 131078, 0, 5, 131079, 0, 65541, 131080, 0, 131083, 262135, 0, 65544, 262136, 0, 131081, 262137, 0, 131083, 262139, 0, 8, 262140, 0, 65541, 262141, 0, 131081, 262142, 0, 131081, 262143, 0, 131081, 196608, 0, 131081, 196609, 0, 131081, 196610, 0, 131081, 196611, 0, 65542, 196612, 0, 11, 196614, 0, 65544, 196615, 0, 131081, 196616, 0, 131083, 327671, 0, 65544, 327672, 0, 131081, 327673, 0, 65542, 327674, 0, 10, 327675, 0, 65541, 327676, 0, 131081, 327677, 0, 131081, 327678, 0, 131081, 327679, 0, 131081, 262144, 0, 131081, 262145, 0, 131081, 262146, 0, 131081, 262147, 0, 131081, 262148, 0, 65542, 262149, 0, 10, 262150, 0, 65541, 262151, 0, 131081, 262152, 0, 131083, 393207, 0, 196616, 393208, 0, 196617, 393209, 0, 196617, 393210, 0, 196617, 393211, 0, 196617, 393212, 0, 196617, 393213, 0, 196617, 393214, 0, 196617, 393215, 0, 196617, 327680, 0, 196617, 327681, 0, 196617, 327682, 0, 196617, 327683, 0, 196617, 327684, 0, 196617, 327685, 0, 196617, 327686, 0, 196617, 327687, 0, 196617, 327688, 0, 196619 )
 script = ExtResource( 3 )
 
-[node name="Tile" parent="SlidableTile" instance=ExtResource( 2 )]
+[node name="SlidableTile" parent="BoardTileMap" instance=ExtResource( 2 )]
 position = Vector2( -24, -24 )
 
-[node name="Tile2" parent="SlidableTile" instance=ExtResource( 2 )]
+[node name="SlidableTile2" parent="BoardTileMap" instance=ExtResource( 2 )]
 position = Vector2( -8, -24 )
 
-[node name="Tile3" parent="SlidableTile" instance=ExtResource( 2 )]
+[node name="SlidableTile3" parent="BoardTileMap" instance=ExtResource( 2 )]
 position = Vector2( 8, -24 )
 
-[node name="Tile4" parent="SlidableTile" instance=ExtResource( 2 )]
+[node name="SlidableTile4" parent="BoardTileMap" instance=ExtResource( 2 )]
 position = Vector2( 24, -24 )
 
-[node name="Tile5" parent="SlidableTile" instance=ExtResource( 2 )]
+[node name="SlidableTile5" parent="BoardTileMap" instance=ExtResource( 2 )]
 position = Vector2( -24, -8 )
 
-[node name="Tile6" parent="SlidableTile" instance=ExtResource( 2 )]
+[node name="SlidableTile6" parent="BoardTileMap" instance=ExtResource( 2 )]
 position = Vector2( -8, -8 )
 
-[node name="Tile7" parent="SlidableTile" instance=ExtResource( 2 )]
+[node name="SlidableTile7" parent="BoardTileMap" instance=ExtResource( 2 )]
 position = Vector2( 8, -8 )
 
-[node name="Tile8" parent="SlidableTile" instance=ExtResource( 2 )]
+[node name="SlidableTile8" parent="BoardTileMap" instance=ExtResource( 2 )]
 position = Vector2( 24, -8 )
 
-[node name="Tile9" parent="SlidableTile" instance=ExtResource( 2 )]
+[node name="SlidableTile9" parent="BoardTileMap" instance=ExtResource( 2 )]
 position = Vector2( -24, 8 )
 
-[node name="Tile10" parent="SlidableTile" instance=ExtResource( 2 )]
+[node name="SlidableTile10" parent="BoardTileMap" instance=ExtResource( 2 )]
 position = Vector2( -8, 8 )
 
-[node name="Tile11" parent="SlidableTile" instance=ExtResource( 2 )]
+[node name="SlidableTile11" parent="BoardTileMap" instance=ExtResource( 2 )]
 position = Vector2( 8, 8 )
 
-[node name="Tile12" parent="SlidableTile" instance=ExtResource( 2 )]
+[node name="SlidableTile12" parent="BoardTileMap" instance=ExtResource( 2 )]
 position = Vector2( 24, 8 )
 
-[node name="Tile13" parent="SlidableTile" instance=ExtResource( 2 )]
+[node name="SlidableTile13" parent="BoardTileMap" instance=ExtResource( 2 )]
 position = Vector2( -24, 24 )
 
-[node name="Tile14" parent="SlidableTile" instance=ExtResource( 2 )]
+[node name="SlidableTile14" parent="BoardTileMap" instance=ExtResource( 2 )]
 position = Vector2( -8, 24 )
 
-[node name="Tile15" parent="SlidableTile" instance=ExtResource( 2 )]
+[node name="SlidableTile15" parent="BoardTileMap" instance=ExtResource( 2 )]
 position = Vector2( 8, 24 )
 
-[node name="Tile16" parent="SlidableTile" instance=ExtResource( 5 )]
+[node name="EmptyTile" parent="BoardTileMap" instance=ExtResource( 5 )]
 position = Vector2( 24, 24 )
 
 [node name="Camera2D" type="Camera2D" parent="."]

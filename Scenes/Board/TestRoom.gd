@@ -8,10 +8,6 @@ export (INPUT_MODE) var input_mode = INPUT_MODE.TILE
 
 enum DIRECTION_ANGLE { UP = 0, RIGHT = 90, DOWN = 180, LEFT = 270 }
 
-var mouse_position_start : Vector2 = Vector2.INF
-
-export (bool) var mouse_mode = false
-
 var is_tile_selected := false
 var tile_selected : Node2D = null
 var tile_direction : Vector2 = Vector2.ZERO
@@ -33,38 +29,9 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	match input_mode:
 		INPUT_MODE.TILE:
-			if mouse_mode:
-				_process_tile_mouse()
-			else:
-				_process_tile_keys()
+			_process_tile_keys()
 		INPUT_MODE.PIECE:
 			_process_piece_keys()
-
-# TODO: delet dis, mouse input is no more
-func _process_tile_mouse() -> void:
-	if Input.is_action_just_pressed("select"):
-		mouse_position_start = get_local_mouse_position()
-	if Input.is_action_just_released("select") and mouse_position_start != Vector2.INF:
-		var mouse_position_end : Vector2 = get_local_mouse_position()
-		var direction : Vector2 = mouse_position_end - mouse_position_start
-		direction = choose_direction(direction)
-		var target_node_cell : Vector2 = slidable_tile.world_to_map(mouse_position_start)
-		var target_node : Node2D = slidable_tile.get_cell_node( target_node_cell, slidable_tile.CELL_TYPES.SLIDABLE )
-		
-		# Some sanity checks
-		if not is_instance_valid(target_node):
-#			print_debug(name + ": not valid instance - ", target_node)
-			return
-		if not target_node.has_method("move_to"):
-			print_debug("Node " + target_node.name + " has no move_to method - ", target_node)
-			return
-		
-		var target_position = $SlidableTile.request_move( target_node, direction )
-		if target_position != Vector2.INF:
-			target_node.move_to(target_position)
-		else:
-			target_node.bump()
-		mouse_position_start = Vector2.INF
 
 ## Process keyboard input in PIECE input mode
 ## Moves cursor and calls piece position func
